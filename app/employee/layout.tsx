@@ -89,7 +89,6 @@ export default function EmployeeLayout({
 
 
 
-
                     <Link
 
                     href="/employee/leaves"
@@ -102,6 +101,22 @@ export default function EmployeeLayout({
 
                     </Link>
 
+
+
+
+
+
+                    <Link
+
+                    href="/employee/projects"
+
+                    className="block p-3 rounded hover:bg-gray-100"
+
+                    >
+
+                        📂 My Projects
+
+                    </Link>
 
 
 
@@ -130,11 +145,14 @@ export default function EmployeeLayout({
 
 
 
+
+
                 <LogoutButton />
 
 
 
             </aside>
+
 
 
 
@@ -152,6 +170,7 @@ export default function EmployeeLayout({
 
 
             </main>
+
 
 
 

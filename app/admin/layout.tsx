@@ -48,17 +48,19 @@ export default function AdminLayout({
 
                     </Link>
 
+
+
                     <Link
 
-href="/admin/departments"
+                    href="/admin/departments"
 
-className="block p-3 rounded hover:bg-gray-100"
+                    className="block p-3 rounded hover:bg-gray-100"
 
->
+                    >
 
-    🏢 Departments
+                        🏢 Departments
 
-</Link>
+                    </Link>
 
 
 
@@ -124,6 +126,38 @@ className="block p-3 rounded hover:bg-gray-100"
 
 
 
+                    {/* NEW: CLIENTS MODULE */}
+
+                    <Link
+
+                    href="/admin/clients"
+
+                    className="block p-3 rounded hover:bg-gray-100"
+
+                    >
+
+                        🤝 Clients
+
+                    </Link>
+
+
+
+                    {/* NEW: PROJECTS MODULE */}
+
+                    <Link
+
+                    href="/admin/projects"
+
+                    className="block p-3 rounded hover:bg-gray-100"
+
+                    >
+
+                        📂 Projects
+
+                    </Link>
+
+
+
                 </nav>
 
 
@@ -135,8 +169,6 @@ className="block p-3 rounded hover:bg-gray-100"
 
 
             </aside>
-
-
 
 
 

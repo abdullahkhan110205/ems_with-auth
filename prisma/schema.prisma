@@ -7,91 +7,75 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Role {
-  ADMIN
-  EMPLOYEE
-}
-
-enum LeaveStatus {
-  PENDING
-  APPROVED
-  REJECTED
-}
-
 model User {
-  id            String    @id @default(cuid())
-  name          String
-  email         String    @unique
-  password      String
-  role          Role      @default(EMPLOYEE)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-
-  employee      Employee?
+  id        String    @id @default(cuid())
+  name      String
+  email     String    @unique
+  password  String
+  role      Role      @default(EMPLOYEE)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  employee  Employee?
 }
 
 model Department {
   id        String     @id @default(cuid())
   name      String     @unique
   createdAt DateTime   @default(now())
-
   employees Employee[]
 }
 
 model Payroll {
-
-  id String @id @default(cuid())
-
-  employeeId String
-
+  id          String   @id @default(cuid())
+  employeeId  String
   billingDate DateTime @default(now())
-
   basicSalary Float
-
-  bonus Float @default(0)
-
-  deductions Float @default(0)
-
-  netSalary Float
-
-  employee Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
-
+  bonus       Float    @default(0)
+  deductions  Float    @default(0)
+  netSalary   Float
+  employee    Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
 }
+
+model Project {
+  id          String            @id @default(cuid())
+  name        String
+  description String?
+  startDate   DateTime
+  deadline    DateTime
+  createdAt   DateTime          @default(now())
+  employees   ProjectEmployee[]
+}
+
+model ProjectEmployee {
+  id         String   @id @default(cuid())
+  projectId  String
+  employeeId String
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  project    Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
 model Employee {
-
-  id String @id @default(cuid())
-
-  userId String @unique
-
-  departmentId String
-
-  position String
-
-  joinedAt DateTime @default(now())
-
-  salary Float
-
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  department Department @relation(fields: [departmentId], references: [id])
-
-  attendance Attendance[]
-
-  leaves Leave[]
-
-  payrolls Payroll[]
-
+  id               String            @id @default(cuid())
+  userId           String            @unique
+  departmentId     String
+  position         String
+  joinedAt         DateTime          @default(now())
+  salary           Float
+  attendance       Attendance[]
+  department       Department        @relation(fields: [departmentId], references: [id])
+  user             User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  leaves           Leave[]
+  payrolls         Payroll[]
+  projectEmployees ProjectEmployee[]
 }
 
 model Attendance {
-  id         String   @id @default(cuid())
+  id         String    @id @default(cuid())
   employeeId String
-  date       DateTime @default(now())
+  date       DateTime  @default(now())
   checkIn    DateTime?
   checkOut   DateTime?
-
-  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  employee   Employee  @relation(fields: [employeeId], references: [id], onDelete: Cascade)
 }
 
 model Leave {
@@ -102,6 +86,25 @@ model Leave {
   endDate    DateTime
   status     LeaveStatus @default(PENDING)
   createdAt  DateTime    @default(now())
+  employee   Employee    @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+}
 
-  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+model Client {
+  id          String   @id @default(cuid())
+  name        String
+  contact     String
+  projectName String
+  description String
+  createdAt   DateTime @default(now())
+}
+
+enum Role {
+  ADMIN
+  EMPLOYEE
+}
+
+enum LeaveStatus {
+  PENDING
+  APPROVED
+  REJECTED
 }
