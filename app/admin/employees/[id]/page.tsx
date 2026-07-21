@@ -43,41 +43,33 @@ export default function EditEmployeePage(){
 
 
 
-    async function loadEmployee(){
+   async function loadEmployee(){
 
-        const res =
-        await fetch(
-            `/api/admin/employees/${id}`
-        );
+    try {
+        const res = await fetch(`/api/admin/employees/${id}`);
 
+        if (!res.ok) {
+            console.error("Failed to fetch employee:", res.status);
+            setLoading(false);
+            return;
+        }
 
-        const data =
-        await res.json();
-
-
+        const data = await res.json();
 
         setFormData({
-
-            name:data.user.name,
-
-            departmentId:data.departmentId,
-
-            position:data.position,
-
-            joinedAt:
-            data.joinedAt
-            .split("T")[0],
-
-            salary:
-            data.salary.toString()
-
+            name: data.user?.name ?? "",
+            departmentId: data.departmentId ?? "",
+            position: data.position ?? "",
+            joinedAt: data.joinedAt ? data.joinedAt.split("T")[0] : "",
+            salary: data.salary != null ? data.salary.toString() : ""
         });
 
-
+    } catch (err) {
+        console.error("Error loading employee:", err);
+    } finally {
         setLoading(false);
-
     }
-
+}
 
 
 
