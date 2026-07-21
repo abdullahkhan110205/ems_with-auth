@@ -58,7 +58,7 @@ export default function EmployeeProfilePage(){
         <div className="p-6">
 
 
-            <h1 className="text-2xl font-bold mb-6">
+            <h1 className="text-gray-900 text-2xl font-bold mb-6">
                 My Profile
             </h1>
 
@@ -69,7 +69,7 @@ export default function EmployeeProfilePage(){
             <div className="bg-white shadow rounded-xl p-6 max-w-xl">
 
 
-                <div className="mb-4">
+                <div className="text-gray-900 mb-4">
 
                     <h2 className="font-semibold text-gray-600">
                         Name
@@ -85,7 +85,7 @@ export default function EmployeeProfilePage(){
 
 
 
-                <div className="mb-4">
+                <div className="text-gray-900 mb-4">
 
                     <h2 className="font-semibold text-gray-600">
                         Email
@@ -101,7 +101,7 @@ export default function EmployeeProfilePage(){
 
 
 
-                <div className="mb-4">
+                <div className="text-gray-900 mb-4">
 
                     <h2 className="font-semibold text-gray-600">
                         Department
@@ -117,7 +117,7 @@ export default function EmployeeProfilePage(){
 
 
 
-                <div className="mb-4">
+                <div className="text-gray-900 mb-4">
 
                     <h2 className="font-semibold text-gray-600">
                         Position
@@ -133,7 +133,7 @@ export default function EmployeeProfilePage(){
 
 
 
-                <div className="mb-4">
+                <div className=" text-gray-900 mb-4">
 
                     <h2 className="font-semibold text-gray-600">
                         Joining Date
@@ -153,7 +153,7 @@ export default function EmployeeProfilePage(){
 
 
 
-                <div>
+                <div className="text-gray-900 mb-4">
 
                     <h2 className="font-semibold text-gray-600">
                         Salary

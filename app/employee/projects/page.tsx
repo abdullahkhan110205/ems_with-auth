@@ -82,7 +82,7 @@ return (
 <div>
 
 
-<h1 className="text-2xl font-bold mb-6">
+<h1 className="text-gray-900 text-2xl font-bold mb-6">
 
 📂 My Projects
 
@@ -94,7 +94,7 @@ return (
 {
 projects.length === 0 && (
 
-<p>
+<p className="mt-2 text-gray-900">
 No projects assigned yet.
 </p>
 

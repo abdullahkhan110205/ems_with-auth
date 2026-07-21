@@ -175,7 +175,7 @@ export default function AttendancePage(){
 
         return(
 
-            <div className="p-6">
+            <div className="text-gray-900 p-6">
 
                 Loading attendance...
 
@@ -193,11 +193,11 @@ export default function AttendancePage(){
 
     return(
 
-        <div className="p-6">
+        <div className=" text-gray-900p-6">
 
 
 
-            <h1 className="text-2xl font-bold mb-6">
+            <h1 className="text-gray-900 text-2xl font-bold mb-6">
                 My Attendance
             </h1>
 
@@ -212,7 +212,7 @@ export default function AttendancePage(){
             <div className="bg-white shadow rounded-xl p-5 mb-6">
 
 
-                <h2 className="text-xl font-bold mb-3">
+                <h2 className="text-gray-900 text-xl font-bold mb-3">
                     Today's Status
                 </h2>
 
@@ -316,7 +316,7 @@ export default function AttendancePage(){
 
                 onClick={checkIn}
 
-                className="bg-green-600 text-white px-5 py-2 rounded"
+                className="text-gray-900 bg-green-600 text-white px-5 py-2 rounded"
 
                 >
 
@@ -373,11 +373,11 @@ export default function AttendancePage(){
             {/* Attendance History Table */}
 
 
-            <div className="bg-white shadow rounded-xl p-4">
+            <div className="text-gray-900 bg-white shadow rounded-xl p-4">
 
 
 
-                <h2 className="text-xl font-bold mb-4">
+                <h2 className="text-gray-900 text-xl font-bold mb-4">
 
                     Attendance History
 

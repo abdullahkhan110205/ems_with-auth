@@ -56,7 +56,7 @@ export default function EmployeePayrollPage(){
 
         return(
 
-            <div className="p-6">
+            <div className="text-gray-900 p-6">
 
                 Loading payroll...
 
@@ -79,7 +79,7 @@ export default function EmployeePayrollPage(){
 
 
 
-            <h1 className="text-3xl font-bold mb-6">
+            <h1 className="text-gray-900 text-3xl font-bold mb-6">
 
                 My Payroll History
 
@@ -91,7 +91,7 @@ export default function EmployeePayrollPage(){
 
 
 
-            <div className="bg-white shadow rounded-xl p-5">
+            <div className="text-gray-900 bg-white shadow rounded-xl p-5">
 
 
                 <table className="w-full border">

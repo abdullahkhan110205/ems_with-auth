@@ -102,7 +102,7 @@ export default function EmployeeLeavesPage(){
     if(loading){
 
         return(
-            <div className="p-6">
+            <div className="text-gray-900 p-6">
                 Loading leaves...
             </div>
         );
@@ -115,7 +115,7 @@ export default function EmployeeLeavesPage(){
 
     return(
 
-        <div className="p-6">
+        <div className="text-gray-900 p-6">
 
 
             <h1 className="text-2xl font-bold mb-6">
