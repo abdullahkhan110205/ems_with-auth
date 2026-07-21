@@ -15,7 +15,7 @@ export default function AdminLayout({
 
     return (
 
-        <div className="min-h-screen flex bg-gray-100">
+        <div className="min-h-screen flex bg-gray-800">
 
 
             {/* Sidebar */}
@@ -40,7 +40,7 @@ export default function AdminLayout({
 
                     href="/admin/dashboard"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 
@@ -54,7 +54,7 @@ export default function AdminLayout({
 
                     href="/admin/departments"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 
@@ -68,7 +68,7 @@ export default function AdminLayout({
 
                     href="/admin/employees"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 
@@ -84,7 +84,7 @@ export default function AdminLayout({
 
                     href="/admin/attendance"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 
@@ -100,7 +100,7 @@ export default function AdminLayout({
 
                     href="/admin/leaves"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 
@@ -116,7 +116,7 @@ export default function AdminLayout({
 
                     href="/admin/payroll"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 
@@ -132,7 +132,7 @@ export default function AdminLayout({
 
                     href="/admin/clients"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 
@@ -148,7 +148,7 @@ export default function AdminLayout({
 
                     href="/admin/projects"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 

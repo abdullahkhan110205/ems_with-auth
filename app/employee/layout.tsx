@@ -42,7 +42,7 @@ export default function EmployeeLayout({
 
                     href="/employee/dashboard"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 
@@ -59,7 +59,7 @@ export default function EmployeeLayout({
 
                     href="/employee/profile"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 
@@ -76,7 +76,7 @@ export default function EmployeeLayout({
 
                     href="/employee/attendance"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 
@@ -93,7 +93,7 @@ export default function EmployeeLayout({
 
                     href="/employee/leaves"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 
@@ -110,7 +110,7 @@ export default function EmployeeLayout({
 
                     href="/employee/projects"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 
@@ -127,7 +127,7 @@ export default function EmployeeLayout({
 
                     href="/employee/payroll"
 
-                    className="block p-3 rounded hover:bg-gray-100"
+                    className="text-gray-900 block p-3 rounded hover:bg-gray-400"
 
                     >
 

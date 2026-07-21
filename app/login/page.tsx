@@ -13,53 +13,38 @@ export default function LoginPage() {
   const [error, setError] = useState("");
 
   async function handleLogin(e: React.FormEvent) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const result = await signIn("credentials", {
-    email,
-    password,
-    redirect: false,
-  });
+    const result = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
 
-
-  if (result?.error) {
-    setError("Invalid email or password");
-    return;
-  }
-
-
-  const session = await fetch("/api/auth/session")
-    .then(res => res.json());
-
-
-  if(session.user.role === "ADMIN"){
-
-    router.push("/admin/dashboard");
-
-  }
-  else if(session.user.role === "EMPLOYEE"){
+    if (result?.error) {
+      setError("Invalid email or password");
+      return;
+    }
 
     router.push("/employee/dashboard");
-
   }
 
-}
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-900">
 
       <form
         onSubmit={handleLogin}
         className="bg-white p-8 rounded-xl shadow w-96"
       >
 
-        <h1 className="text-2xl font-bold mb-6">
+        <h1 className="text-gray-500 text-2xl font-bold mb-6">
           EMS Login
         </h1>
 
 
         <input
-          className="border p-2 w-full mb-3"
+          className="text-gray-500 border p-2 w-full mb-3"
           placeholder="Email"
           value={email}
           onChange={(e)=>setEmail(e.target.value)}
@@ -67,7 +52,7 @@ export default function LoginPage() {
 
 
         <input
-          className="border p-2 w-full mb-3"
+          className="text-gray-500 border p-2 w-full mb-3"
           placeholder="Password"
           type="password"
           value={password}

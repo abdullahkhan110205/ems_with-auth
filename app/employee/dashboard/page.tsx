@@ -216,10 +216,10 @@ export default function EmployeeDashboard() {
       <div className="p-6">
 
 
-        <div className="bg-white rounded-xl shadow p-6">
+        <div className="text-gray-900 bg-white rounded-xl shadow p-6">
 
 
-          <h2 className="text-xl font-bold mb-4">
+          <h2 className="text-gray-900 text-xl font-bold mb-4">
 
             My Details
 
@@ -275,7 +275,7 @@ export default function EmployeeDashboard() {
       <div className="px-6 pb-6">
 
 
-        <h2 className="text-2xl font-bold mb-4">
+        <h2 className="text-gray-900 text-2xl font-bold mb-4">
 
           Payroll History
 
@@ -284,7 +284,7 @@ export default function EmployeeDashboard() {
 
 
 
-        <table className="w-full bg-white border">
+        <table className="text-gray-900 w-full bg-white border">
 
 
           <thead>
@@ -390,7 +390,7 @@ export default function EmployeeDashboard() {
       {/* Quick Links */}
 
 
-      <div className="px-6 pb-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className=" text-gray-900 px-6 pb-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
 
 
         {[
