@@ -16,7 +16,7 @@ export default function AdminAttendancePage(){
 
 
         const res = await fetch(
-            "/api/admin/attendance/report"
+            "/api/admin/attendance"
         );
 
 
@@ -81,7 +81,7 @@ export default function AdminAttendancePage(){
 
 
 
-            <div className="bg-white shadow rounded-xl p-5">
+            <div className="bg-blue shadow rounded-xl p-5">
 
 
                 <table className="w-full border">

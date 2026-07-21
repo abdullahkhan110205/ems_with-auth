@@ -177,7 +177,7 @@ async function deleteEmployee(id:string){
 
 
                             <td className="border p-2">
-                                {employee.department.name}
+                               {employee.department?.name ?? "Not Assigned"}
                             </td>
 
 

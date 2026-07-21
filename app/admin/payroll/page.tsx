@@ -166,7 +166,7 @@ value={form.employeeId}
 
 onChange={handleChange}
 
-className="border p-2 w-full"
+className="text-gray-900 border p-2 w-full"
 
 >
 
@@ -183,7 +183,7 @@ key={emp.id}
 value={emp.id}
 >
 
-{emp.user.name} - {emp.department.name}
+{emp.user.name} - {emp.department?.name ?? "Not Assigned"}
 
 </option>
 
@@ -208,7 +208,7 @@ value={form.basicSalary}
 
 onChange={handleChange}
 
-className="border p-2 w-full"
+className="text-gray-900 border p-2 w-full"
 
 />
 
@@ -227,7 +227,7 @@ value={form.bonus}
 
 onChange={handleChange}
 
-className="border p-2 w-full"
+className="text-gray-900 border p-2 w-full"
 
 />
 
@@ -247,7 +247,7 @@ value={form.deductions}
 
 onChange={handleChange}
 
-className="border p-2 w-full"
+className="text-gray-900 border p-2 w-full"
 
 />
 

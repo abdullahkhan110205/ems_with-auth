@@ -154,7 +154,7 @@ return (
 <div className="bg-white shadow rounded-lg p-6 mb-8">
 
 
-<h2 className="text-xl font-semibold mb-4">
+<h2 className="text-gray-900 text-xl font-semibold mb-4">
 
 Add New Client
 
@@ -165,7 +165,7 @@ Add New Client
 
 <input
 
-className="border p-2 w-full mb-3 rounded"
+className="text-gray-900 border p-2 w-full mb-3 rounded"
 
 placeholder="Client Name"
 
@@ -181,7 +181,7 @@ e=>setName(e.target.value)
 
 <input
 
-className="border p-2 w-full mb-3 rounded"
+className="text-gray-900 border p-2 w-full mb-3 rounded"
 
 placeholder="Contact Information"
 
@@ -197,7 +197,7 @@ e=>setContact(e.target.value)
 
 <input
 
-className="border p-2 w-full mb-3 rounded"
+className="text-gray-900 border p-2 w-full mb-3 rounded"
 
 placeholder="Project Name"
 
@@ -214,7 +214,7 @@ e=>setProjectName(e.target.value)
 
 <textarea
 
-className="border p-2 w-full mb-3 rounded"
+className="text-gray-900 border p-2 w-full mb-3 rounded"
 
 placeholder="Project Description"
 
@@ -233,7 +233,7 @@ e=>setDescription(e.target.value)
 
 onClick={addClient}
 
-className="bg-blue-600 text-white px-5 py-2 rounded"
+className="text-gray-900 bg-blue-600 text-white px-5 py-2 rounded"
 
 >
 
@@ -250,7 +250,7 @@ Add Client
 
 
 
-<div className="bg-white shadow rounded-lg p-6">
+<div className="text-gray-900 bg-white shadow rounded-lg p-6">
 
 
 <h2 className="text-xl font-semibold mb-4">

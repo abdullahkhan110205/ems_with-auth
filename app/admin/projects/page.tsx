@@ -317,7 +317,7 @@ toggleEmployee(emp.id)
 {emp.user.name}
 
 (
-{emp.department.name}
+{emp.department?.name ?? "Not Assigned"}
 )
 
 </span>

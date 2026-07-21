@@ -229,7 +229,7 @@ export default function AdminLeavesPage(){
 
             {/* Filters */}
 
-            <div className="flex gap-3 mb-5">
+            <div className="text-gray-900 flex gap-3 mb-5">
 
 
                 {
@@ -268,7 +268,7 @@ export default function AdminLeavesPage(){
 
             {/* Table */}
 
-            <div className="bg-white shadow rounded-xl p-5">
+            <div className="text-gray-900 bg-white shadow rounded-xl p-5">
 
 
             <table className="w-full border">
@@ -318,7 +318,7 @@ export default function AdminLeavesPage(){
                 <tr key={leave.id}>
 
 
-                    <td className="border p-2">
+                    <td className="text-gray-900 border p-2">
 
                         {leave.employee.user.name}
 
