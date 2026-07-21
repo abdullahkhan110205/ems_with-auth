@@ -81,32 +81,12 @@ export async function POST(req: Request) {
 
 
 
-        // Convert department id from string to number
-
-        const deptId = Number(departmentId);
-
-
-        if (isNaN(deptId)) {
-
-            return NextResponse.json(
-                {
-                    message: "Invalid department id"
-                },
-                {
-                    status: 400
-                }
-            );
-
-        }
-
-
-
         // Check department exists
 
         const department = await prisma.department.findUnique({
 
             where: {
-                id: deptId
+                id: departmentId
             }
 
         });
@@ -187,7 +167,7 @@ export async function POST(req: Request) {
 
                 userId: user.id,
 
-                departmentId: deptId,
+                departmentId: departmentId,
 
                 position,
 
