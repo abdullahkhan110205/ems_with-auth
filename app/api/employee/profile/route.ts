@@ -87,7 +87,7 @@ export async function GET(){
 
             email:employee.user.email,
 
-            department:employee.department.name,
+           department:employee.department?.name ?? "Not Assigned",
 
             position:employee.position,
 
