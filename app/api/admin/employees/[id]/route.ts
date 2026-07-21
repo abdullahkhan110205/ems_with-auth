@@ -75,7 +75,7 @@ export async function PATCH(
         const updated = await prisma.employee.update({
             where: { id },
             data: {
-                departmentId: departmentId ? Number(departmentId) : employee.departmentId,
+                departmentId: departmentId ?? employee.departmentId,
                 position: position ?? employee.position,
                 joinedAt: joinedAt ? new Date(joinedAt) : employee.joinedAt,
                 salary: salary != null ? Number(salary) : employee.salary
