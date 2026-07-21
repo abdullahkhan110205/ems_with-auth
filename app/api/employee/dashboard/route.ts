@@ -138,7 +138,7 @@ export async function GET(){
 
 
 
-            department: employee.department.name,
+            department: employee.department?.name ?? "Not Assigned",
 
 
 
