@@ -43,6 +43,21 @@ export async function PATCH(req:Request){
 
 
 
+        if(!employee.user.password){
+
+            return NextResponse.json(
+                {
+                    message:"This account has no password set (signed in via Google)"
+                },
+                {
+                    status:400
+                }
+            );
+
+        }
+
+
+
         const passwordMatch =
         await bcrypt.compare(
             currentPassword,
