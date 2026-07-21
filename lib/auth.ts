@@ -1,44 +1,154 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
+
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
+
 import bcrypt from "bcryptjs";
 import { authConfig } from "@/auth.config";
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
+
+export const { handlers, signIn, signOut, auth } = NextAuth ({
+
   ...authConfig,
+
   adapter: PrismaAdapter(prisma),
-  session: { strategy: "jwt" },
+
+  session: {
+    strategy: "jwt",
+  },
+
+
   providers: [
+
+    GoogleProvider({
+
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+
+      // allows Google login with an existing email account
+      allowDangerousEmailAccountLinking: true,
+
+    }),
+
+
+
     CredentialsProvider({
+
       name: "Credentials",
+
       credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" },
+
+        email: {
+          label: "Email",
+          type: "email",
+        },
+
+        password: {
+          label: "Password",
+          type: "password",
+        },
+
       },
+
+
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) return null;
+
+        if (!credentials?.email || !credentials?.password) {
+          return null;
+        }
+
 
         const user = await prisma.user.findUnique({
-          where: { email: credentials.email as string },
+
+          where: {
+            email: credentials.email as string,
+          },
+
         });
 
-        if (!user) return null;
+
+        if (!user || !user.password) {
+          return null;
+        }
+
 
         const passwordMatch = await bcrypt.compare(
+
           credentials.password as string,
+
           user.password
+
         );
 
-        if (!passwordMatch) return null;
+
+        if (!passwordMatch) {
+          return null;
+        }
+
 
         return {
+
           id: user.id,
           name: user.name,
-          email: user.email,
+          email: user.email ?? "",
           role: user.role,
+
         };
+
       },
+
     }),
+
   ],
+
+
+
+callbacks: {
+
+  async signIn({ user }) {
+
+    console.log("Google/User login:", user);
+
+    return true;
+
+  },
+
+
+  async jwt({ token, user }) {
+
+    if (user) {
+
+      token.id = user.id;
+      token.role = user.role;
+
+    }
+
+    return token;
+
+  },
+
+
+  async session({ session, token }) {
+
+    if (session.user) {
+
+      session.user.id = token.id as string;
+      session.user.role = token.role as string;
+
+    }
+
+    return session;
+
+  },
+
+
+  async redirect({ url }) {
+
+    return url;
+
+  },
+
+}
 });

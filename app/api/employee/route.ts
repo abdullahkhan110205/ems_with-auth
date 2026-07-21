@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db";
+import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 
 
@@ -10,9 +10,13 @@ export async function GET() {
 
     const employees = await prisma.employee.findMany({
 
-      include: {
-        user: true,
-        department: true,
+      include:{
+        user:true,
+        department:true
+      },
+
+      orderBy:{
+        joinedAt:"desc"
       }
 
     });
@@ -40,6 +44,8 @@ export async function GET() {
 
 
 
+
+
 // CREATE EMPLOYEE
 export async function POST(req:Request) {
 
@@ -59,8 +65,6 @@ export async function POST(req:Request) {
     } = body;
 
 
-
-    // Validation
 
     if(
       !name ||
@@ -83,8 +87,6 @@ export async function POST(req:Request) {
     }
 
 
-
-    // Check duplicate email
 
     const existingUser =
       await prisma.user.findUnique({
@@ -112,14 +114,10 @@ export async function POST(req:Request) {
 
 
 
-    // Hash password
-
     const hashedPassword =
       await bcrypt.hash(password,10);
 
 
-
-    // Create User
 
     const user =
       await prisma.user.create({
@@ -140,7 +138,7 @@ export async function POST(req:Request) {
 
 
 
-    // Create Employee
+
 
     const employee =
       await prisma.employee.create({
@@ -156,10 +154,11 @@ export async function POST(req:Request) {
           salary:Number(salary),
 
           joinedAt: joinedAt
-            ? new Date(joinedAt)
-            : new Date()
+          ? new Date(joinedAt)
+          : new Date()
 
         },
+
 
         include:{
 
@@ -174,10 +173,13 @@ export async function POST(req:Request) {
 
 
     return NextResponse.json(
+
       employee,
+
       {
         status:201
       }
+
     );
 
 
@@ -189,12 +191,15 @@ export async function POST(req:Request) {
 
 
     return NextResponse.json(
+
       {
         message:"Employee creation failed"
       },
+
       {
         status:500
       }
+
     );
 
   }

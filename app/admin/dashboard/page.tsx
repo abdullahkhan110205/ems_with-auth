@@ -188,7 +188,7 @@ data.recentEmployees.map(
 
 <td className="border p-2">
 
-{employee.department.name}
+{employee.department?.name || "Not Assigned"}
 
 </td>
 
